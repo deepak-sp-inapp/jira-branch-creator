@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>URL String Conversion</title>
+    <!-- Bootstrap CSS -->
+    <link href="./src/css/boostrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>URL String Conversion (now for JIRA branch)</h1>
+        <div class="mt-5 form-group">
+            <label for="inputString">Enter String:</label>
+            <input type="text" class="form-control" id="inputString" placeholder="Enter string...">
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label for="removeString">Remove Substrings (comma-separated):</label>
+                <input type="text" class="form-control" id="removeString" placeholder="Enter substrings to remove...">
+            </div>
+            <div class="col-md-6 form-group">
+                <label for="skipLowercase">Skip Lowercase for:</label>
+                <input type="text" class="form-control" id="skipLowercase" placeholder="Enter string to skip lowercase...">
+            </div>
+        </div>
+        <button type="button" class="mt-3 btn btn-primary" onclick="convertString()">Convert</button>
+        <div class="mt-5" id="result"></div>
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="./src/js/conversion.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
