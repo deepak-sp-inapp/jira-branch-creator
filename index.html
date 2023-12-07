@@ -8,7 +8,7 @@
     <link href="./src/css/boostrap.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="onLoaded()">
     <div class="container mt-5">
         <h1>URL String Conversion (now for JIRA branch)</h1>
         <div class="mt-5 form-group">
@@ -23,6 +23,12 @@
             <div class="col-md-6 form-group">
                 <label for="skipLowercase">Skip Lowercase for:</label>
                 <input type="text" class="form-control" id="skipLowercase" placeholder="Enter string to skip lowercase...">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label for="addPrefix">Add Prefix:</label>
+                <input type="text" class="form-control" id="addPrefix" placeholder="Enter prefix to add...">
             </div>
         </div>
         <button type="button" class="mt-3 btn btn-primary" onclick="convertString()">Convert</button>
