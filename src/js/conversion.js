@@ -13,6 +13,41 @@ function onLoaded() {
   if (localStorage.getItem(ADD_PREFIX))
     document.getElementById("addPrefix").value =
       localStorage.getItem(ADD_PREFIX);
+
+  onPrefixChange()
+}
+
+function onPrefixChange() {
+  const addPrefix = document.getElementById("addPrefix").value;
+  let perfixHelp = "";
+
+  switch (addPrefix) {
+    case "feature/":
+      perfixHelp = "A new feature.";
+      break;
+    case "bugfix/":
+      perfixHelp = "A bug fix.";
+      break;
+    case "docs/":
+      perfixHelp = "Documentation only changes.";
+      break;
+    case "style/":
+      perfixHelp = "Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc).";
+      break;
+    case "refactor/":
+      perfixHelp = "A code change that neither fixes a bug nor adds a feature.";
+      break;
+    case "test/":
+      perfixHelp = "Adding missing or correcting existing tests.";
+      break;
+    case "chore/":
+      perfixHelp = "Changes to the build process or auxiliary tools and libraries such as documentation generation.";
+      break;
+    default:
+      perfixHelp = "";
+      break;
+  }
+  document.getElementById("perfix-help").innerHTML = perfixHelp;
 }
 
 function convertToURLString(inputString, substringsToRemove, skipLowercase) {
@@ -40,7 +75,6 @@ function convertToURLString(inputString, substringsToRemove, skipLowercase) {
     .filter(Boolean) // Filter out undefined, null, and empty strings
     .join("-")
     .trim();
-
   return urlString;
 }
 
@@ -69,13 +103,13 @@ function convertString() {
 
   const resultString = `${addPrefix}${urlString.replace(/^-+|-+$/g, "")}`;
   resultElement.innerHTML = `
-        <div class="d-flex justify-content-between align-items-center bg-light rounded p-3">
-            <div><b>${resultString}</b></div>
-            <div>
-                <button class="btn btn-secondary" onclick="copyToClipboard('${resultString}', this)">Copy</button>
-            </div>
-        </div>
-    `;
+    <div class="d-flex justify-content-between align-items-center bg-light rounded p-3">
+      <div><b>${resultString}</b></div>
+      <div>
+        <button class="btn btn-secondary" onclick="copyToClipboard('${resultString}', this)">Copy</button>
+      </div>
+    </div>
+  `;
 }
 
 async function copyToClipboard(resultString, copyButton) {

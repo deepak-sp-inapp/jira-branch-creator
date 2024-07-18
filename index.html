@@ -28,7 +28,17 @@
         <div class="row">
             <div class="col-md-6 form-group">
                 <label for="addPrefix">Add Prefix:</label>
-                <input type="text" class="form-control" id="addPrefix" placeholder="Enter prefix to add...">
+                <select class="form-control" id="addPrefix" onChange="onPrefixChange()">
+                    <option selected>Choose...</option>
+                    <option value="feature/">feature/</option>
+                    <option value="bugfix/">bugfix/</option>
+                    <option value="docs/">docs/</option>
+                    <option value="style/">style/</option>
+                    <option value="refactor/">refactor/</option>
+                    <option value="test/">test/</option>
+                    <option value="chore/">chore/</option>
+                </select>
+                <small id="perfix-help" class="form-text text-muted"></small>
             </div>
         </div>
         <button type="button" class="mt-3 btn btn-primary" onclick="convertString()">Convert</button>
